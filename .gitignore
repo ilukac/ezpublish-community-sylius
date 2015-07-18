@@ -16,8 +16,6 @@
 /ezpublish_legacy
 /ezpublish/config/parameters.yml
 /ezpublish/config/sylius_parameters.yml
-/ezpublish/config/ezpublish_prod.yml
-/ezpublish/config/ezpublish_dev.yml
 /ezpublish/sessions
 /ezpublish/bootstrap.php.cache
 /ezpublish/check.php
