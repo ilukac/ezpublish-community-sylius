@@ -1,6 +1,6 @@
 mysql -usummer -pcamp -e "create database ezsylius character set utf8"
 mysql ezsylius -usummer -pcamp < installation/db.dmp
-php composer.phar install --no-dev -n
+composer install --no-dev -n
 
 cp -R installation/ezpublish_legacy/settings/override ezpublish_legacy/settings/
 cp -R installation/ezpublish_legacy/settings/siteaccess/administration ezpublish_legacy/settings/siteaccess/
