@@ -1,0 +1,47 @@
+doctrine:
+    dbal:
+        connections:
+            eng_repository_connection:
+                driver: pdo_mysql
+                host: localhost
+                user: summer
+                password: camp
+                dbname: ezsylius
+                charset: UTF8
+ezpublish:
+    imagemagick:
+        enabled: true
+        path: /usr/bin/convert
+    repositories:
+        eng_repository:
+            engine: legacy
+            connection: eng_repository_connection
+    siteaccess:
+        default_siteaccess: eng
+        list:
+            - eng
+            - administration
+        groups:
+            ezdemo_site_group:
+                - eng
+                - administration
+        match:
+            URIElement: '1'
+    system:
+        ezdemo_site_group:
+            repository: eng_repository
+            languages:
+                - eng-GB
+            var_dir: var/ezdemo_site
+        eng:
+            session:
+                name: eZSESSID
+        administration:
+            legacy_mode: true
+stash:
+    caches:
+        default:
+            drivers:
+                - FileSystem
+            inMemory: true
+            registerDoctrineAdapter: false
