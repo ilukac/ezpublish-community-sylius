@@ -13,9 +13,9 @@ parameters:
     database_driver: pdo_mysql
     database_host: 127.0.0.1
     database_port: ~
-    database_user: root
-    database_password: ~
-    database_name: ezpublish
+    database_user: summer
+    database_password: camp
+    database_name: ezsylius
 
     # Settings to control dev environment settings
     debug_toolbar:          true
