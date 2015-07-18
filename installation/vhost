@@ -18,6 +18,7 @@
         php_value magic_quotes_gpc  0
         php_value magic_quotes_runtime  0
         php_value allow_call_time_pass_reference 0
+	php_value max_execution_time 180
     </IfModule>
 
     # Environment.
