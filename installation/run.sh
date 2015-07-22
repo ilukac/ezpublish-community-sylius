@@ -1,7 +1,7 @@
 #!/bin/bash
 
-mysql -uroot -e "create database ezsylius character set utf8"
-mysql ezsylius -uroot < installation/db.dmp
+mysql -usummer -pcamp -e "create database ezsylius character set utf8"
+mysql ezsylius -usummer -pcamp < installation/db.dmp
 php /usr/local/bin/composer.phar install --no-dev -n
 
 cp -R installation/ezpublish_legacy/settings/override ezpublish_legacy/settings/
