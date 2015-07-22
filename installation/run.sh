@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mysql -usummer -pcamp -e "create database ezsylius character set utf8"
+#mysql -usummer -pcamp -e "create database ezsylius character set utf8"
 mysql ezsylius -usummer -pcamp < installation/db.dmp
 composer install --no-dev -n
 
