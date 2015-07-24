@@ -1,12 +1,12 @@
-<VirtualHost ezsylius.local:80>
-    ServerName ezsylius.local
-    DocumentRoot /Users/gofina/Web/ezpublish-community-sylius/web
+<VirtualHost ezsylius.ezsc:80>
+    ServerName ezsylius.ezsc
+    DocumentRoot /var/www/ezpublish/workshops/ezpublish-community-sylius/web
     DirectoryIndex index.php
 
     # Enabled for Dev environment
     # LogLevel debug
 
-    <Directory /Users/gofina/Web/ezpublish-community-sylius/web>
+    <Directory /var/www/ezpublish/workshops/ezpublish-community-sylius/web>
         Options FollowSymLinks
         AllowOverride None
         Require all granted
