@@ -1,12 +1,12 @@
-<VirtualHost ezsylius.ezsc:80>
+<VirtualHost *:80>
     ServerName ezsylius.ezsc
-    DocumentRoot /var/www/ezpublish/workshops/ezpublish-community-sylius/web
+    DocumentRoot /var/www/summercamp/workshops/ezpublish-community-sylius/web
     DirectoryIndex index.php
 
     # Enabled for Dev environment
     # LogLevel debug
 
-    <Directory /var/www/ezpublish/workshops/ezpublish-community-sylius/web>
+    <Directory /var/www/summercamp/workshops/ezpublish-community-sylius/web>
         Options FollowSymLinks
         AllowOverride None
         Require all granted
