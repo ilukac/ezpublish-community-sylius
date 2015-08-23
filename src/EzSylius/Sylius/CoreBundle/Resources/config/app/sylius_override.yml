@@ -19,3 +19,7 @@ sylius_shipping:
         shipping_method:
             model: EzSylius\Sylius\CoreBundle\Entity\ShippingMethod
             form: EzSylius\Sylius\CoreBundle\Form\Type\ShippingMethodType
+
+# task 8 shipping method with tax
+parameters:
+    sylius.listener.order_taxation.class: EzSylius\Bundle\CoreBundle\OrderProcessing\TaxationProcessor
