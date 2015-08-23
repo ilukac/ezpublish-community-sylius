@@ -145,6 +145,8 @@ class EzPublishKernel extends Kernel
             new \Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new \Sylius\Bundle\FixturesBundle\SyliusFixturesBundle(),
             new \Sylius\Bundle\PayumBundle\SyliusPayumBundle(), // must be added after PayumBundle.
+
+            new \EzSylius\Sylius\CoreBundle\EzSyliusCoreBundle(),
         );
 
         switch ( $this->getEnvironment() )
