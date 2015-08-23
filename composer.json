@@ -56,7 +56,8 @@
         "sylius/sylius": "~0.14.0",
         "doctrine/migrations": "~1.0@dev",
         "friendsofsymfony/user-bundle": "2.0.*@dev",
-
+        
+        "guzzlehttp/guzzle": "~5.0",
         "netgen/ez-sylius-bundle": "~1.0"
     },
     "require-dev": {
