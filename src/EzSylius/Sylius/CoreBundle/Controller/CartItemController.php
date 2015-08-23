@@ -32,11 +32,65 @@ class CartItemController extends BaseCartItemController
         // override add action in way if it is AJAX request return JSON with proper data if not redirect to summary page
         // as it is default
 
-        return new JsonResponse(
-            array(
-                'items' => null,
-                'total' => null,
-            )
-        );
+        $cart = $this->getCurrentCart();
+        $emptyItem = $this->createNew();
+
+        $eventDispatcher = $this->getEventDispatcher();
+
+        try {
+            $item = $this->getResolver()->resolve($emptyItem, $request);
+        } catch (ItemResolvingException $exception) {
+
+            return new JsonResponse(
+                array(
+                    'errorMessage' => $exception->getMessage(),
+                ),
+                400
+            );
+        }
+
+        $event = new CartItemEvent($cart, $item);
+        $event->isFresh(true);
+
+        // Update models
+        $eventDispatcher->dispatch(SyliusCartEvents::ITEM_ADD_INITIALIZE, $event);
+        $eventDispatcher->dispatch(SyliusCartEvents::CART_CHANGE, new GenericEvent($cart));
+        $eventDispatcher->dispatch(SyliusCartEvents::CART_SAVE_INITIALIZE, $event);
+
+        // Write flash message
+        $eventDispatcher->dispatch(SyliusCartEvents::ITEM_ADD_COMPLETED, new FlashEvent());
+
+        // if its ajax return json with informations
+        if ($request->isXmlHttpRequest()) {
+            return new JsonResponse(
+                array(
+                    'itemsCount' => $cart->getTotalQuantity(),
+                    'cartTotal' => $this->get('sylius.templating.helper.currency')->convertAndFormatAmount(
+                        $cart->getTotal()
+                    ),
+                )
+            );
+        }
+
+        // else return redirect after add
+        return $this->redirectAfterAdd($request);
+    }
+
+    /**
+     * Redirect to specific URL or to cart.
+     *
+     * @param Request $request
+     *
+     * @return RedirectResponse
+     */
+    private function redirectAfterAdd(Request $request)
+    {
+        if ($request->query->has('_redirect_to')) {
+            return $this->redirect($request->query->get('_redirect_to'));
+        }
+
+        return $this->redirectToCartSummary();
     }
 }
+
+
