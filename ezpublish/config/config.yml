@@ -3,7 +3,8 @@ imports:
     - { resource: sylius_parameters.yml }
     - { resource: security.yml }
     - { resource: sylius_config.yml }
-
+    - { resource: services.yml }
+    
 framework:
     esi:             ~
     translator:      { fallback: "%locale_fallback%" }
