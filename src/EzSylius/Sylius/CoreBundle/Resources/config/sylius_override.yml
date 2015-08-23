@@ -1,1 +1,5 @@
 # todo task 4 override sylius cart controller class
+sylius_cart:
+    classes:
+        item:
+            controller: EzSylius\Sylius\CoreBundle\Controller\CartItemController
