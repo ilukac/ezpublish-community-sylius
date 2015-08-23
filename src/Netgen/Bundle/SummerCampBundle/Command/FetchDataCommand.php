@@ -131,8 +131,8 @@ class FetchDataCommand extends GeneratorCommand {
         try
         {
             $contentType = $contentTypeService->loadContentTypeByIdentifier( $contentTypeIdentifier );
-            $contentCreateStruct = $contentService->newContentCreateStruct( $contentType, 'eng-EU' );
-            $contentCreateStruct->setField( 'title', $title );
+            $contentCreateStruct = $contentService->newContentCreateStruct( $contentType, 'eng-GB' );
+            $contentCreateStruct->setField( 'name', $title );
             $contentCreateStruct->setField( 'image', $this->prepareImage($image, $id, $title) );
 
             $sylius = array(
