@@ -2,12 +2,13 @@ doctrine:
     dbal:
         connections:
             eng_repository_connection:
-                driver: %database_driver%
-                host: %database_host%
-                user: %database_user%
-                password: %database_password%
-                dbname: %database_name%
+                driver: pdo_mysql
+                host: localhost
+                user: root
+                password: root
+                dbname: ezsylius
                 charset: UTF8
+                port: '8000'
 ezpublish:
     imagemagick:
         enabled: true
@@ -19,25 +20,30 @@ ezpublish:
     siteaccess:
         default_siteaccess: eng
         list:
+            - ezdemo_site
             - eng
-            - administration
+            - ezdemo_site_admin
         groups:
             ezdemo_site_group:
+                - ezdemo_site
                 - eng
-                - administration
+                - ezdemo_site_admin
         match:
             URIElement: '1'
     system:
         ezdemo_site_group:
             repository: eng_repository
             languages:
-                - eng-GB
+                - eng-US
             var_dir: var/ezdemo_site
         eng:
             session:
                 name: eZSESSID
-        administration:
+        ezdemo_site_admin:
             legacy_mode: true
+        ezdemo_site:
+            session:
+                name: eZSESSID
 stash:
     caches:
         default:

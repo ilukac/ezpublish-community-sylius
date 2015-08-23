@@ -32,9 +32,11 @@ class CartItemController extends BaseCartItemController
         // override add action in way if it is AJAX request return JSON with proper data if not redirect to summary page
         // as it is default
 
-        return new JsonResponse(array(
-            'items' => null,
-            'total' => null
-        ));
+        return new JsonResponse(
+            array(
+                'items' => null,
+                'total' => null,
+            )
+        );
     }
 }
