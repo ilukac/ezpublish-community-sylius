@@ -1,14 +1,13 @@
 <?php
 
-namespace EzSylius\Bundle\CoreBundle\OrderProcessing;
+namespace EzSylius\Sylius\CoreBundle\OrderProcessing;
 
 use Sylius\Component\Core\Model\AdjustmentInterface;
 use Sylius\Component\Core\Model\OrderInterface;
 use Sylius\Bundle\CoreBundle\OrderProcessing\TaxationProcessor as BaseTaxationProcessor;
 
-class TaxationProcessor extends  BaseTaxationProcessor
+class TaxationProcessor extends BaseTaxationProcessor
 {
-
     /**
      * {@inheritdoc}
      */
@@ -59,22 +58,27 @@ class TaxationProcessor extends  BaseTaxationProcessor
 
             $amount = $this->calculator->calculate($item->getTotal(), $rate);
             $taxAmount = $rate->getAmountAsPercentage();
-            $description = sprintf('%s (%s%%)', $rate->getName(), (float) $taxAmount);
+            $description = sprintf('%s (%s%%)', $rate->getName(), (float)$taxAmount);
 
             $taxes[$description] = array(
-                'amount'   => (isset($taxes[$description]['amount']) ? $taxes[$description]['amount'] : 0) + $amount,
-                'included' => $rate->isIncludedInPrice()
+                'amount' => (isset($taxes[$description]['amount']) ? $taxes[$description]['amount'] : 0) + $amount,
+                'included' => $rate->isIncludedInPrice(),
             );
         }
 
         foreach ($order->getShipments() as $shipment) {
             $rate = $this->taxRateResolver->resolve($shipment->getMethod(), array('zone' => $zone));
+            if (null == $rate) {
+
+                continue;
+            }
             $amount = $this->calculator->calculate($order->getAdjustmentsTotal('shipping'), $rate);
             $taxAmount = $rate->getAmountAsPercentage();
-            $description = sprintf('%s (%s%%)', $rate->getName(), (float) $taxAmount);
+            $description = sprintf('%s (%s%%)', $rate->getName(), (float)$taxAmount);
+
             $taxes[$description] = array(
                 'amount' => (isset($taxes[$description]['amount']) ? $taxes[$description]['amount'] : 0) + $amount,
-                'included' => $rate->isIncludedInPrice()
+                'included' => $rate->isIncludedInPrice(),
             );
         }
 
