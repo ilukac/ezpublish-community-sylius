@@ -165,7 +165,7 @@ class EzPublishKernel extends Kernel
         }
 
         $bundles[] = new \Netgen\Bundle\EzSyliusBundle\NetgenEzSyliusBundle();
-
+        $bundles[] = new \Netgen\Bundle\SummerCampBundle\NetgenSummerCampBundle();
         return $bundles;
     }
 

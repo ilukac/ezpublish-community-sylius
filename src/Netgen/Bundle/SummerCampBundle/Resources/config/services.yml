@@ -1,0 +1,8 @@
+parameters:
+
+services:
+    netgen.summercamp.spotify:
+        class: Netgen\Bundle\SummerCampBundle\Service\Spotify
+    netgen.controller.full_view:
+        class: Netgen\Bundle\SummerCampBundle\Controller\FullViewController
+        parent: ezpublish.controller.base
