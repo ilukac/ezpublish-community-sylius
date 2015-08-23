@@ -12,3 +12,10 @@ sylius_product:
             model: EzSylius\Sylius\CoreBundle\Entity\Product
             form:
                 default: EzSylius\Sylius\CoreBundle\Form\Type\ProductType
+
+# todo task 7 override shipping method
+sylius_shipping:
+    classes:
+        shipping_method:
+            model: EzSylius\Sylius\CoreBundle\Entity\ShippingMethod
+            form: EzSylius\Sylius\CoreBundle\Form\Type\ShippingMethodType
