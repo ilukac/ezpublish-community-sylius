@@ -4,11 +4,10 @@ doctrine:
             eng_repository_connection:
                 driver: pdo_mysql
                 host: localhost
-                user: root
-                password: root
+                user: summer
+                password: camp
                 dbname: ezsylius
                 charset: UTF8
-                port: '8000'
 ezpublish:
     imagemagick:
         enabled: true
@@ -20,30 +19,25 @@ ezpublish:
     siteaccess:
         default_siteaccess: eng
         list:
-            - ezdemo_site
             - eng
-            - ezdemo_site_admin
+            - administration
         groups:
             ezdemo_site_group:
-                - ezdemo_site
                 - eng
-                - ezdemo_site_admin
+                - administration
         match:
             URIElement: '1'
     system:
         ezdemo_site_group:
             repository: eng_repository
             languages:
-                - eng-US
+                - eng-GB
             var_dir: var/ezdemo_site
         eng:
             session:
                 name: eZSESSID
-        ezdemo_site_admin:
+        administration:
             legacy_mode: true
-        ezdemo_site:
-            session:
-                name: eZSESSID
 stash:
     caches:
         default:
