@@ -6,6 +6,10 @@ login_check:
 logout:
     path:   /logout
 
+thank_you_page:
+    path:   /checkout/thank-you-page
+    defaults:  { _controller: EzSyliusCoreBundle:Checkout:thankYou }
+
 _ezpublishRoutes:
     resource: "@EzPublishCoreBundle/Resources/config/routing/internal.yml"
 
