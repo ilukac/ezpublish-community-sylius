@@ -1,6 +1,6 @@
 ezpublish:
     system:
-        code_camp_frontend_group:
+        ezdemo_site_group:
             location_view:
                 full:
                     sylius_product:

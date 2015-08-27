@@ -1,9 +1,3 @@
 imports:
     - { resource: override.yml }
     
-ezpublish:
-    system:
-        code_camp_frontend_group:
-            user:
-                layout: 'NetgenSummerCampBundle::pagelayout.html.twig'
-

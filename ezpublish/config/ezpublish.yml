@@ -1,3 +1,7 @@
+imports:
+    -
+        resource: '@NetgenSummerCampBundle/Resources/config/ezpublish.yml'
+
 doctrine:
     dbal:
         connections:
