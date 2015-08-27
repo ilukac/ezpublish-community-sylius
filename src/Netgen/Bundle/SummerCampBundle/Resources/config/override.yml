@@ -5,11 +5,5 @@ ezpublish:
                 full:
                     sylius_product:
                         template: NetgenSummerCampBundle:override/full:sylius_product.html.twig
-                        controller: netgen.controller.full_view:viewProductLocation
-                        match:
-                            Identifier\ContentType: sylius_product
-                line:
-                    sylius_product:
-                        template: NetgenSummerCampBundle:override/line:sylius_product.html.twig
                         match:
                             Identifier\ContentType: sylius_product
