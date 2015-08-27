@@ -146,8 +146,6 @@ class EzPublishKernel extends Kernel
             new \Sylius\Bundle\FixturesBundle\SyliusFixturesBundle(),
             new \Sylius\Bundle\PayumBundle\SyliusPayumBundle(), // must be added after PayumBundle.
 
-            new \EzSylius\Sylius\CoreBundle\EzSyliusCoreBundle(),
-            new \EzSylius\Sylius\WebBundle\EzSyliusWebBundle(),
         );
 
         switch ( $this->getEnvironment() )
@@ -165,7 +163,6 @@ class EzPublishKernel extends Kernel
         }
 
         $bundles[] = new \Netgen\Bundle\EzSyliusBundle\NetgenEzSyliusBundle();
-        $bundles[] = new \Netgen\Bundle\SummerCampBundle\NetgenSummerCampBundle();
         return $bundles;
     }
 
