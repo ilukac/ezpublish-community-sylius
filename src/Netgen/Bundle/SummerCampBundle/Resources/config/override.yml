@@ -1,9 +1,0 @@
-ezpublish:
-    system:
-        ezdemo_site_group:
-            location_view:
-                full:
-                    sylius_product:
-                        template: NetgenSummerCampBundle:override/full:sylius_product.html.twig
-                        match:
-                            Identifier\ContentType: sylius_product
