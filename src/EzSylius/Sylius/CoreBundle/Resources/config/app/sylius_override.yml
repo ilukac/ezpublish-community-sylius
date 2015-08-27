@@ -1,22 +1,12 @@
-# todo task 4 override sylius cart controller class
 sylius_cart:
     classes:
         item:
             controller: EzSylius\Sylius\CoreBundle\Controller\CartItemController
 
 
-# todo task 6 override product and add checkbox field for bigProducts
 sylius_product:
     classes:
         product:
             model: EzSylius\Sylius\CoreBundle\Entity\Product
             form:
                 default: EzSylius\Sylius\CoreBundle\Form\Type\ProductType
-
-# todo task 7 override shipping method
-sylius_shipping:
-    classes:
-        shipping_method:
-            model: EzSylius\Sylius\CoreBundle\Entity\ShippingMethod
-            form: EzSylius\Sylius\CoreBundle\Form\Type\ShippingMethodType
-
