@@ -18,9 +18,7 @@
 
     <parameters>
         <parameter key="sylius.order_processing.taxation_processor.class">EzSylius\Sylius\CoreBundle\OrderProcessing\TaxationProcessor</parameter>
-        <parameter key="sylius.checkout_scenario.class">EzSylius\Sylius\CoreBundle\Checkout\CheckoutProcessScenario</parameter>
-        <parameter key="sylius.listener.purchase.class">EzSylius\Sylius\CoreBundle\EventListener\PurchaseListener</parameter>
-    </parameters>
+     </parameters>
 
     <services>
         <service id="sylius.listener.order_taxation" class="%sylius.listener.order_taxation.class%">
