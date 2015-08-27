@@ -1,39 +1,37 @@
+{% extends "eZDemoBundle::pagelayout.html.twig" %}
+
 {% block content %}
-    <div class="content-view-full ng-category {% if not ez_is_field_empty( content, 'css_class' ) %}{{ ez_field_value( content, 'css_class' ).text }}{% endif %} clearfix">
-        <h1 class="att-title page-header">{{ ez_render_field( content, 'title' ) }}</h1>
+    <div class="content-view-full sylius-product clearfix">
+        <h1 class="att-title page-header">{{ ez_render_field( content, 'name' ) }}</h1>
 
         {% if not ez_is_field_empty( content, 'image' ) %}
             <div class="att-image">
-                {{ ez_render_field( content, 'image', { 'parameters': { 'alias': 'ng_image_full' } } ) }}
+                {{ ez_render_field( content, 'image', { 'parameters': { 'alias': 'medium' } } ) }}
             </div>
         {% endif %}
 
-        {% if not ez_is_field_empty( content, 'full_intro' ) %}
-            <div class="att-full-intro">
-                {{ ez_render_field( content, 'full_intro' ) }}
-            </div>
-        {% endif %}
-
-        {% if not ez_is_field_empty( content, 'body' ) %}
+        {% if not ez_is_field_empty( content, 'description' ) %}
             <div class="att-body">
-                {{ ez_render_field( content, 'body' ) }}
+                {{ ez_render_field( content, 'description' ) }}
             </div>
         {% endif %}
 
     </div>
 
-    <p> PRICE: {{ ez_field_value(content, 'sylius_product').price }}</p>
-    <form action="{{ path('sylius_cart_item_add', {'id': ez_field_value(content, 'sylius_product').syliusId}) }}" method="post">
-        {% set form = sylius_cart_form() %}
-        <div class="quantityForm">
-            <div class="quantityForm-actions">
-                {{ form_widget(form.quantity, {'attr': {'style': 'display:block', 'class': 'itemQuantity'}}) }}
-            </div>
-            <div class="quantityForm-submit">
-                <button type="submit" class="btn btn-default btn-add-to-cart addToCart"><i class="fa fa-shopping-cart"></i> {{ "Add to cart"|trans }}</button>
-            </div>
-        </div>
-        {{ form_widget(form._token) }}
-    </form>
+    <p> PRICE:
+
+{{ ez_render_field(
+   content,
+   'sylius_product',
+   {
+       'parameters':
+       {
+           'show' : [ 'price', 'form' ]
+       }
+    }
+) }}
+
+</p>
+
 
 {% endblock %}

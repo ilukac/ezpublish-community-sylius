@@ -16,4 +16,9 @@ class NetgenSummerCampBundle extends Bundle
     {
         parent::build( $container );
     }
+    
+    public function getParent() 
+    {
+        return "eZDemoBundle";
+    }
 }
