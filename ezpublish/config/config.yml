@@ -4,8 +4,7 @@ imports:
     - { resource: security.yml }
     - { resource: sylius_config.yml }
     - { resource: services.yml }
-    - { resource: "@EzSyliusCoreBundle/Resources/config/app/sylius_override.yml" }
-    
+
 framework:
     esi:             ~
     translator:      { fallback: "%locale_fallback%" }
@@ -46,7 +45,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ eZDemoBundle, SyliusWebBundle, CmfCreateBundle, SyliusResourceBundle, EzSyliusWebBundle ]
+    bundles:        [ eZDemoBundle, SyliusWebBundle, CmfCreateBundle, SyliusResourceBundle ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
